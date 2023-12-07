@@ -2,5 +2,21 @@
 """ENTER YOUR SOLUTION HERE!"""
 
 def primes(number_of_primes):
+    if number_of_primes <= 0:
+        raise ValueError("Number of primes must be a positive integer.")
     list = []
+    num = 2
+    while len(list) < number_of_primes:
+        if is_prime(num):
+            list.append(num)
+        num += 1
+
     return list
+
+def is_prime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
